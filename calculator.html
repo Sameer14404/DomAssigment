@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="first" placeholder="enter the first Number">
+    <input type="text" id="second" placeholder="enter the second Number">
+   <div>
+    <button id="add">Add</button>
+    <button id="sub">Subtract</button>
+    <button id="mult">Multiply</button>
+    <button id="dev">Divide</button>
+   </div>
+</body>
+<script>
+let add=document.getElementById("add");
+let sub=document.getElementById("sub");
+let mult=document.getElementById("mult");
+let dev=document.getElementById("dev");
+let first=document.getElementById("first");
+let second=document.getElementById("second");
+
+// addition logic
+add.addEventListener("click",
+function(){
+alert(Number(first.value)+Number(second.value))
+}
+)
+
+// subtract logic
+sub.addEventListener("click",
+function(){
+alert(Number(first.value-second.value))
+}
+)
+
+// Multiply logic
+
+mult.addEventListener("click",
+function(){
+alert(Number(first.value*second.value))
+}
+)
+
+// devidelogic
+
+dev.addEventListener("click",
+function(){
+alert(Number(first.value /second.value))
+}
+)
+
+
+
+</script>
+</html>
