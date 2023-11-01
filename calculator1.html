@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+  </head>
+
+  <style>
+    #output{
+width: 290px;
+height: 20px;
+border: 1px solid green;
+margin: 5px;
+    }
+    #container{
+      margin-top: 20px;
+      margin: auto;
+width: 300px;
+border: 2px solid black;
+    }
+#parent{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+ 
+  gap: 2px;
+
+}
+
+#parent>div>button{
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  
+  
+}
+#parent>div>button:hover{
+  background-color: cyan;
+  color: solid black;
+}
+h4{
+  text-align: center;
+}
+  </style>
+  <body>
+
+    <div id="container">
+
+      <h4>Masai Calculator</h4>
+      <!-- Output Div  -->
+      <div id="output"></div>
+     
+<div id="parent">
+  
+   <!-- Numbers Buttons  -->
+   <div> <button class="number">1</button></div>
+   <div>  <button class="number">2</button></div>
+   <div><button class="number">3</button></div>
+   <div>  <button class="number">4</button></div>
+   <div> <button class="number">5</button></div>
+   <div>  <button class="number">6</button></div>
+   <div> <button class="number">7</button></div>
+   <div> <button class="number">8</button></div>
+   <div> <button class="number">9</button></div>
+   <div> <button class="number">0</button></div>
+     <!-- Operator Buttons -->
+   <div>  <button id="plus">+</button></div>
+   <div> <button id="minus">-</button></div>
+   <div> <button id="multiply">*</button></div>
+   <div> <button id="divide">/</button></div>
+   <div><button id="equal">=</button></div>
+   <div> <button id="C">C</button></div>
+  
+    
+      
+    
+     
+    
+     
+     
+     
+     
+
+      
+      
+       
+       
+       
+        
+       
+</div>
+      
+    
+    
+    </div>
+    
+    
+  </body>
+
+  <script>
+    let output = document.getElementById("output");
+    let numberBTN = document.getElementsByClassName("number");
+    let plus = document.getElementById("plus");
+    let minus=document.getElementById("minus");
+    let multiply=document.getElementById("multiply");
+    let devide=document.getElementById("divide");
+    let equal = document.getElementById("equal");
+let C=document.getElementById("C");
+
+
+    let operator = "";
+
+    let outputText = " ";
+    let myNumbers = [];
+
+    for(let i=0;i<numberBTN.length;i++){
+numberBTN[i].addEventListener("click",(e)=>{
+outputText=outputText+e.target.innerText
+output.innerText=outputText
+})
+    }
+
+
+    plus.addEventListener("click",()=>{
+      myNumbers.push(+outputText)
+      output.innerText="";
+      outputText="";
+     operator="plus"
+    
+    })
+    minus.addEventListener("click",()=>{
+      myNumbers.push(+outputText)
+      output.innerText="";
+      outputText="";
+     operator="minus"
+     
+    })
+    multiply.addEventListener("click",()=>{
+      myNumbers.push(+outputText)
+      output.innerText="";
+      outputText="";
+     operator="multiply"
+     
+    })
+    devide.addEventListener("click",()=>{
+      myNumbers.push(+outputText)
+      output.innerText="";
+      outputText="";
+     operator="devide"
+    
+    })
+
+
+    equal.addEventListener("click",()=>{
+      
+      myNumbers.push(+outputText)
+      if(operator==="plus"){
+        output.innerText=+(myNumbers[0]+myNumbers[1])
+        myNumbers[0]=output.innerText
+       
+      }
+      else if(operator==="minus"){
+        output.innerText=+(myNumbers[0]-myNumbers[1])
+        myNumbers[0]=output.innerText
+      }
+      else if(operator==="multiply"){
+        output.innerText=+(myNumbers[0]*myNumbers[1])
+        myNumbers[0]=output.innerText
+      }
+      else if(operator==="devide"){
+        output.innerText=+(myNumbers[0]/myNumbers[1])
+        myNumbers[0]=output.innerText
+      }
+
+
+      
+    })
+
+    C.addEventListener("click",()=>{
+   output.innerText="";
+    })
+
+  </script>
+</html>
