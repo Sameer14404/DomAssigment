@@ -1,3 +1,7 @@
+
+
+
+
 function BankAccount(accountNumber, name, type,  balance){
     this.accuntNumber=accountNumber;
     this.name=name;
