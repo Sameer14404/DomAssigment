@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+  
+</head>
+<style>
+        #container{
+            width: 400px;
+            margin: auto;
+
+        }
+
+        #first-div{
+            display: flex;
+            justify-content: space-around;
+            
+        }
+        #second-div{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 10px;
+
+            border: 2px solid black;
+        }
+
+        button{
+            width: 50%;
+            height: 90%;
+        }
+
+        #display-div{
+            border: 2px solid violet;
+            margin: 10px;
+        }
+</style>
+<body>
+    <!-- min and max wala section -->
+
+    <div id="container">
+
+        <div id="first-div">
+
+            <div ><h5 id="min"></h5></div>
+            <div> <h5 id="max"></h5></div>
+        
+        </div>
+
+        <div id="display-div"> <h5 id="display"></h5></div>
+        
+        <div id="second-div">
+         
+        
+        
+            <div><button class="btn">1</button></div>
+            <div><button class="btn">2</button></div>
+            <div><button class="btn">3</button></div>
+            <div><button class="btn">4</button></div>
+            <div><button class="btn">5</button></div>
+            <div>  <button class="btn">6</button></div>
+            <div> <button class="btn">7</button></div>
+            <div> <button class="btn">8</button></div>
+            <div> <button class="btn">9</button></div>
+            <div>  <button class="btn">0</button></div>
+            <div>
+                <button id="enter">Enter</button></div>
+        
+          
+           
+        
+        </div>
+    </div>
+
+</body>
+<script>
+    let btn=document.getElementsByClassName("btn")
+    let display=document.getElementById("display")
+    let arr=[];
+    let text="";
+
+    for(let i=0;i<btn.length;i++){
+        btn[i].addEventListener("click",(e)=>{
+text=text+e.target.innerText;
+display.innerText=e.target.innerText
+
+
+        })
+    }
+</script>
+</html>
