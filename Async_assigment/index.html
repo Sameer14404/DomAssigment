@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            display: flex;
+            width: 200px;
+            border: 5px solid black;
+            margin: auto;
+gap: 10px;
+justify-content: space-around;
+        }
+
+        h1 {
+            text-align: center;
+
+}
+        #second-section{
+            width: 80%;
+          align-items: center;
+          padding-left: 45%;
+            margin-top: 20px;
+        
+        }
+        #start{
+            width: 80px;
+            height: 50px;
+            border-radius: 10px;
+            background-color:rgb(69, 69, 225);
+            color: white;
+            border-color: transparent;
+            align-items: center;
+        }
+        #reset{
+            width: 80px;
+            height: 50px;
+            border-radius: 10px;
+            background-color:grey;
+            color: black;
+            border-color: transparent;
+            align-items: center;
+        }
+        #reset:hover{
+            background-color: black;
+            color: grey;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        STOP WATCH
+    </h1>
+
+    <div id="container">
+        <h2 id="hour">
+    00
+        </h2>
+     
+
+        <h2 id="min">
+00
+            </h2>
+
+
+            <h2 id="sec">
+00
+            </h2>
+
+            
+    </div>
+
+
+<div id="second-section">
+<button id="start">START</button>
+<button id="reset">RESET</button>
+    </div>
+
+</body>
+<script>
+
+let start=document.getElementById("start");
+let end=document.getElementById("reset");
+    let min=document.getElementById("min");
+    let sec=document.getElementById("sec");
+let hour=document.getElementById("hour");
+let timer;
+start.addEventListener("click",()=>{
+let s=0;
+let m=0;
+let h=0;
+timer=setInterval(function(){
+
+
+if(s===60){
+    m++;
+    min.innerText=m;
+    s=0;
+}
+if(m==60){
+    h++
+    hour.innerText=h;
+    m=0;
+}
+
+sec.innerText=s++
+},1000)
+
+})
+
+end.addEventListener("click",()=>{
+    clearInterval(timer)
+    let s="00";
+   let m="00";
+   let h="00";
+    sec.innerText=s;
+    min.innerText=m;
+    hour.innerText=h;
+})
+</script>
+
+</html>
