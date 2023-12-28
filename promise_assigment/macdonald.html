@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Mac donalds</h1>
+    <h3>Food odering System</h3>
+   <div id="status"></div>
+   <div id="img_cont"></div>
+    <div id="foodItems">
+        <label >Burger </label>
+        <input type="checkbox" value="Burger">
+        <label >Pasta </label>
+        <input type="checkbox" value="Pasta">
+        <label >Maggie </label>
+        <input type="checkbox" value="Maggie">
+        <label >Coke</label>
+        <input type="checkbox" value="coke">
+    </div>
+
+    <Button onclick="orderFood()">order food</Button>
+</body>
+
+<script>
+    let foodItems=document.querySelectorAll("#foodItems input")
+    let status=document.getElementById("status");
+   
+    function orderFood(){
+        let items=Array.from(foodItems)
+        let random=Math.random()
+        let h3=document.createElement("h3");
+        h3.innerText=` your food is being ordered please wait..`
+        let h5=document.createElement("h5");
+        h5.innerText=`your order id is ${random}`
+        status.append(h3,h5);
+     promiseCreate(items).then((res)=>{
+        h3.innerText=`${res} is orderd sucessfully`
+     })
+
+   
+    
+    }
+
+    function promiseCreate(items){
+
+        let images=[
+            {
+                name:"Burger",
+                url:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFie5FJCUuLJDYJn4HQu8lgMueayDxzEaTj7-2XGD26Q&s"
+            },
+            {
+                name:"Pasta",
+                url:"https://www.budgetbytes.com/wp-content/uploads/2013/07/Creamy-Spinach-Tomato-Pasta-bowl-500x500.jpg"
+            },
+            {
+                name:"Maggie",
+                url:"https://www.shutterstock.com/image-photo/instant-masala-maggi-noodles-bell-260nw-1823679476.jpg"
+            },
+            {
+                name:"Coke",
+                url:"https://www.shutterstock.com/image-photo/glass-coke-ice-cubes-isolated-600nw-2329440827.jpg"
+            }
+        ]
+
+        let img_cont=document.getElementById("img_cont")
+
+       
+        let checked_itm=items.filter((el)=>{
+            return el.checked
+        })
+
+        let image_filter=images.filter((ele)=>{
+            return ele.name==checked_itm[0].value
+        })
+
+        let photo=document.createElement("img");
+        photo.src=image_filter[0].url
+        photo.style.width="200px";
+        photo.style.height="200px";
+        img_cont.append(photo)
+
+
+
+let promise= new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+        resolve(checked_itm[0].value)
+    },2000)
+})
+
+return promise
+    }
+</script>
+</html>

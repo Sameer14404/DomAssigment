@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1  style="color: blue; text-align: center;">Phone pe </h1>
+    <input type="number" id="amount">
+    <h3 id="amount_status"></h3>
+    <div id="img_cont"></div>
+    <button id="pay">Pay</button>
+
+</body>
+<script>
+    let amount=document.getElementById("amount");
+    let pay=document.getElementById("pay");
+    let image_cont=document.getElementById("img_cont")
+    pay.addEventListener("click",()=>{
+     let amount_status=document.getElementById("amount_status")
+     let photo=document.createElement("img")
+   first.then((res)=>{
+    amount_status.innerText=`your payment is sucessfull for rs ${amount.value}`
+    let photo=document.createElement("img")
+    photo.src()
+    image_cont.append(photo)
+
+   }).catch((rej)=>{
+    amount_status.innerText=`your payment is rejected for rs ${amount.value}`
+    // let photo=document.createElement("img")
+    // photo.src(rej)
+    // image_cont.append(photo)
+   })
+
+    })
+    let payment=false
+    let first=new Promise((resolve, reject) => {
+        let img_url_1="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.vecteezy.com%2Ffree-vector%2Fpayment-successful&psig=AOvVaw1Qnvb7-Z5sPrYaxEPY4L0p&ust=1703842981949000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCIiQna61soMDFQAAAAAdAAAAABAD"
+        let img_url_2="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRi42vBdz6tYNJM_Q8An205pn6Fv-dfNju122pAaCP_aQ&s"
+    if(payment){
+        resolve(img_url_1)
+    }
+    else{
+        reject(img_url_2)
+    }
+
+    })
+</script>
+</html>
